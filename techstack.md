@@ -1,8 +1,10 @@
 <!--
---- Readme.md Snippet without images Start ---
+&lt;--- Readme.md Snippet without images Start ---&gt;
 ## Tech Stack
 Afroshok/docs is built on the following main stack:
+
 - [Node.js](http://nodejs.org/) – Frameworks (Full Stack)
+- [Sass](http://sass-lang.com/) – CSS Pre-processors / Extensions
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
 - [TypeScript](http://www.typescriptlang.org) – Languages
 - [Babel](http://babeljs.io/) – JavaScript Compilers
@@ -11,14 +13,20 @@ Afroshok/docs is built on the following main stack:
 - [Preact](http://developit.github.io/preact/) – Javascript UI Libraries
 - [Prettier](https://prettier.io/) – Code Review
 - [GitHub Actions](https://github.com/features/actions) – Continuous Integration
+- [LangChain](https://github.com/hwchase17/langchain) – Large Language Model Tools
+- [Vercel AI SDK](https://sdk.vercel.ai/docs) – Large Language Model Tools
+- [pgvector](https://github.com/pgvector/pgvector/) – Database Tools
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet without images End ---
 
---- Readme.md Snippet with images Start ---
+&lt;--- Readme.md Snippet without images End ---&gt;
+
+&lt;--- Readme.md Snippet with images Start ---&gt;
 ## Tech Stack
 Afroshok/docs is built on the following main stack:
+
 - <img width='25' height='25' src='https://img.stackshare.io/service/1011/n1JRsFeB_400x400.png' alt='Node.js'/> [Node.js](http://nodejs.org/) – Frameworks (Full Stack)
+- <img width='25' height='25' src='https://img.stackshare.io/service/1171/jCR2zNJV.png' alt='Sass'/> [Sass](http://sass-lang.com/) – CSS Pre-processors / Extensions
 - <img width='25' height='25' src='https://img.stackshare.io/service/1209/javascript.jpeg' alt='JavaScript'/> [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
 - <img width='25' height='25' src='https://img.stackshare.io/service/1612/bynNY5dJ.jpg' alt='TypeScript'/> [TypeScript](http://www.typescriptlang.org) – Languages
 - <img width='25' height='25' src='https://img.stackshare.io/service/2739/-1wfGjNw.png' alt='Babel'/> [Babel](http://babeljs.io/) – JavaScript Compilers
@@ -27,16 +35,20 @@ Afroshok/docs is built on the following main stack:
 - <img width='25' height='25' src='https://img.stackshare.io/service/4388/preact.png' alt='Preact'/> [Preact](http://developit.github.io/preact/) – Javascript UI Libraries
 - <img width='25' height='25' src='https://img.stackshare.io/service/7035/default_66f265943abed56bcdbfca1c866a4261b1fbb063.jpg' alt='Prettier'/> [Prettier](https://prettier.io/) – Code Review
 - <img width='25' height='25' src='https://img.stackshare.io/service/11563/actions.png' alt='GitHub Actions'/> [GitHub Actions](https://github.com/features/actions) – Continuous Integration
+- <img width='25' height='25' src='https://img.stackshare.io/service/48790/default_5b6c6b73f1ff3775c85d2a1ba954cb87e30cbf13.jpg' alt='LangChain'/> [LangChain](https://github.com/hwchase17/langchain) – Large Language Model Tools
+- <img width='25' height='25' src='https://img.stackshare.io/service/101756/default_4f2991cba3ec7fdd1cc87de69f4868157b0f2001.png' alt='Vercel AI SDK'/> [Vercel AI SDK](https://sdk.vercel.ai/docs) – Large Language Model Tools
+- <img width='25' height='25' src='https://img.stackshare.io/service/109221/default_b888cdf5617d936aa6aacf130911906955508639.png' alt='pgvector'/> [pgvector](https://github.com/pgvector/pgvector/) – Database Tools
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet with images End ---
+
+&lt;--- Readme.md Snippet with images End ---&gt;
 -->
 <div align="center">
 
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [Afroshok/docs](https://github.com/Afroshok/docs)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|28<br/>Tools used|11/20/23 <br/>Report generated|
+|31<br/>Tools used|12/14/23 <br/>Report generated|
 |------|------|
 </div>
 
@@ -69,7 +81,7 @@ Full tech stack [here](/techstack.md)
 </tr>
 </table>
 
-## <img src='https://img.stackshare.io/frameworks.svg'/> Frameworks (2)
+## <img src='https://img.stackshare.io/frameworks.svg'/> Frameworks (3)
 <table><tr>
   <td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/1011/n1JRsFeB_400x400.png' alt='Node.js'>
@@ -85,6 +97,27 @@ Full tech stack [here](/techstack.md)
   <sub><a href="http://developit.github.io/preact/">Preact</a></sub>
   <br>
   <sub>v10.16.0</sub>
+</td>
+
+<td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/1171/jCR2zNJV.png' alt='Sass'>
+  <br>
+  <sub><a href="http://sass-lang.com/">Sass</a></sub>
+  <br>
+  <sub></sub>
+</td>
+
+</tr>
+</table>
+
+## <img src='https://img.stackshare.io/databases.svg'/> Data (1)
+<table><tr>
+  <td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/109221/default_b888cdf5617d936aa6aacf130911906955508639.png' alt='pgvector'>
+  <br>
+  <sub><a href="https://github.com/pgvector/pgvector/">pgvector</a></sub>
+  <br>
+  <sub></sub>
 </td>
 
 </tr>
@@ -156,7 +189,7 @@ Full tech stack [here](/techstack.md)
 </tr>
 </table>
 
-## Other (1)
+## Other (3)
 <table><tr>
   <td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/2270/no-img-open-source.png' alt='HTML'>
@@ -166,13 +199,29 @@ Full tech stack [here](/techstack.md)
   <sub></sub>
 </td>
 
+<td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/48790/default_5b6c6b73f1ff3775c85d2a1ba954cb87e30cbf13.jpg' alt='LangChain'>
+  <br>
+  <sub><a href="https://github.com/hwchase17/langchain">LangChain</a></sub>
+  <br>
+  <sub></sub>
+</td>
+
+<td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/101756/default_4f2991cba3ec7fdd1cc87de69f4868157b0f2001.png' alt='Vercel AI SDK'>
+  <br>
+  <sub><a href="https://sdk.vercel.ai/docs">Vercel AI SDK</a></sub>
+  <br>
+  <sub></sub>
+</td>
+
 </tr>
 </table>
 
 
-## <img src='https://img.stackshare.io/group.svg' /> Open source packages (15)</h2>
+## <img src='https://img.stackshare.io/group.svg' /> Open source packages (14)</h2>
 
-## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (15)
+## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (14)
 
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
@@ -187,7 +236,6 @@ Full tech stack [here](/techstack.md)
 |[node-fetch](https://www.npmjs.com/node-fetch)|v3.2.10|11/21/22|Erika |MIT|N/A|
 |[prompts](https://www.npmjs.com/prompts)|v2.4.2|04/26/22|Chris Swithinbank |MIT|N/A|
 |[remark](https://www.npmjs.com/remark)|v14.0.2|11/14/22|Matthew Phillips |MIT|N/A|
-|[sass](https://www.npmjs.com/sass)|v1.54.3|08/08/22|Yan Thomas |MIT|N/A|
 |[simple-git](https://www.npmjs.com/simple-git)|v3.11.0|08/08/22|Yan Thomas |MIT|[CVE-2022-25860](https://github.com/advisories/GHSA-9w5j-4mwv-2wj8) (Critical)<br/>[CVE-2022-25912](https://github.com/advisories/GHSA-9p95-fxvg-qgq2) (High)|
 |[unified](https://www.npmjs.com/unified)|v10.1.2|06/14/22|Chris Swithinbank |MIT|N/A|
 |[unist-util-visit](https://www.npmjs.com/unist-util-visit)|v4.1.0|05/06/23|Bjorn Lu |MIT|N/A|
