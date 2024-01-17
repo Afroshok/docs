@@ -5,7 +5,8 @@ description: >-
   entre páginas con plantillas comunes.
 i18nReady: true
 ---
-import FileTree from '~/components/FileTree.astro'
+
+import ReadMore from '~/components/ReadMore.astro'
 
 **Las plantillas** son [componentes de Astro](/es/core-concepts/astro-components/) para proporcionar una estructura reutilizable, como una plantilla de página.
 
@@ -24,7 +25,7 @@ Los componentes de plantilla se colocan comúnmente en la carpeta `src/layouts` 
 // src/layouts/MySiteLayout.astro
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
-const { title } = Astro.props
+const { title } = Astro.props;
 ---
 <html lang="es">
   <head>
@@ -56,7 +57,7 @@ import MySiteLayout from '../layouts/MySiteLayout.astro';
 </MySiteLayout>
 ```
 
-📚 Obtén más información sobre [slots](/es/core-concepts/astro-components/#slots).
+<ReadMore>Obtén más información sobre [slots](/es/core-concepts/astro-components/#slots).</ReadMore>
 
 ## Plantillas de Markdown/MDX
 
@@ -226,7 +227,7 @@ const { title, fancyJsHelper } = Astro.props;
 <!-- -->
 ```
 
-📚 Aprende más sobre el soporte de Markdown y MDX de Astro en nuestra [guía de Markdown/MDX](/es/guides/markdown-content/).
+<ReadMore>Aprende más sobre el soporte de Markdown y MDX de Astro en nuestra [guía de Markdown/MDX](/es/guides/markdown-content/).</ReadMore>
 
 ## Usando una plantilla para `.md`, `.mdx` y `.astro`
 
@@ -257,8 +258,8 @@ Por ejemplo, un componente de plantilla `BlogPostLayout.astro` podría dar estil
 ```astro {3} /</?BaseLayout>/ /</?BaseLayout url={frontmatter.url}>/
 ---
 // src/layouts/BlogPostLayout.astro
-import BaseLayout from './BaseLayout.astro'
-const {frontmatter} = Astro.props;
+import BaseLayout from './BaseLayout.astro';
+const { frontmatter } = Astro.props;
 ---
 <BaseLayout url={frontmatter.url}>
   <h1>{frontmatter.title}</h1>

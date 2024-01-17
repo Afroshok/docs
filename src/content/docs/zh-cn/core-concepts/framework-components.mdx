@@ -2,18 +2,28 @@
 title: 框架组件
 description: 学习如何使用 React，Svelte 等框架。
 ---
+import IntegrationsNav from '~/components/IntegrationsNav.astro'
+import ReadMore from '~/components/ReadMore.astro'
 
-你可以在无需舍弃你所喜欢的组件框架的情况下使用 Astro 构建站点。
+你可以在无需舍弃你所喜欢的组件框架的情况下使用 Astro 构建站点。而是可以任意选择的 UI 框架来创建 Astro [群岛](/zh-cn/concepts/islands/)。
 
-Astro 支持多个受欢迎的框架，包括 [React](https://react.dev/)、[Preact](https://preactjs.com/)、[Svelte](https://svelte.dev/)、[Vue](https://vuejs.org/)、[SolidJS](https://www.solidjs.com/)、[AlpineJS](https://alpinejs.dev/) 和 [Lit](https://lit.dev/)。
+## 官方的 UI 框架集成
+
+Astro 支持多个受欢迎的框架并提供了集成，包括 [React](https://react.dev/)、[Preact](https://preactjs.com/)、[Svelte](https://svelte.dev/)、[Vue](https://vuejs.org/)、[SolidJS](https://www.solidjs.com/)、[AlpineJS](https://alpinejs.dev/) 和 [Lit](https://lit.dev/)。
+
+在我们的集成目录中找到更多 [社区维护的框架集成](https://astro.build/integrations/?search=&categories%5B%5D=frameworks)（例如 Angular、Qwik、Elm 等）。
+
+<IntegrationsNav category="renderer" />
 
 ## 安装集成
 
-Astro 附带了 [集成选项](/zh-cn/guides/integrations-guide/)，包括 React、Preact、Svelte、Vue、SolidJS、AlpineJS 和 Lit。你可以在你的项目中安装和配置一个或多个 Astro 集成。
+你可以在你的项目中安装和配置一个或多个 Astro 集成。
 
-⚙️ 阅读[集成指引](/zh-cn/guides/integrations-guide/)获取更多关于安装和配置 Astro 集成和信息。
+查看[集成指南](/zh-cn/guides/integrations-guide/)以获取更多关于安装和配置 Astro 集成的信息。
 
-⚙️ 想要看看你选择的框架的示例？访问 [astro.new](https://astro.new/) 然后选择一个框架模板。
+::tip
+想要看看你选择的框架的示例？访问 [astro.new](https://astro.new/) 然后选择一个框架模板。
+:::
 
 ## 使用框架组件
 
@@ -68,7 +78,7 @@ import InteractiveModal from "../components/InteractiveModal.svelte"
 
 这里有几个适用于 UI 框架组件的激活指令：`client:load`、`client:idle`、`client:visible`、`client:media={QUERY}` 和 `client:only={FRAMEWORK}`。
 
-📚 查看[指令参考](/zh-cn/reference/directives-reference/#客户端指令)页面获取这些激活指令的详细描述以及用法。
+<ReadMore>查看[指令参考](/zh-cn/reference/directives-reference/#客户端指令)页面获取这些激活指令的详细描述以及用法。</ReadMore>
 
 ## 混合框架
 
@@ -197,7 +207,7 @@ import MySvelteButton from '../components/MySvelteButton.svelte';
 这使得你可以用喜欢的 JavaScript 框架中建立整个应用，并通过在 Astro 页面中使用父组件来渲染它们。
 
 :::note
-即使 Astro 组件包括激活框架组件，它也会被渲染成静态 HTML。这意味着，你只能传递不做任何 HTML 渲染的参数。在 Astro 组件中向框架组件传递 React 的“渲染参数”是行不通的，因为 Astro 组件无法提供该模式所需要的客户端运行时行为。所以它选择使用命名插槽。
+即使 Astro 组件包括激活框架组件，它也会被渲染成静态 HTML。这意味着，你只能传递不做任何 HTML 渲染的参数。在 Astro 组件中向框架组件传递 React 的“渲染参数”是行不通的，因为 Astro 组件无法提供该模式所需要的客户端运行时行为。所以请改用命名插槽。
 :::
 
 ## 我可以在我的框架组件中使用 Astro 组件吗？
@@ -222,8 +232,5 @@ import MyAstroComponent from '../components/MyAstroComponent.astro';
 
 [Astro 组件](/zh-cn/core-concepts/astro-components/)是纯 HTML 的模板组件，没有客户端运行时。但是，你可以在 Astro 组件模板中使用 `<script>` 标签，向浏览器发送在全局范围内执行的 JavaScript。
 
-📚 了解更多关于 [Astro 组件中的客户端 `<script>`](/zh-cn/guides/client-side-scripts/) 的信息
 
-[mdn-io]: https://developer.mozilla.org/zh-CN/docs/Web/API/Intersection_Observer_API
-[mdn-ric]: https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestIdleCallback
-[mdn-mm]: https://developer.mozilla.org/zh-CN/docs/Web/API/Window/matchMedia
+<ReadMore>了解更多关于 [Astro 组件中的客户端 `<script>`](/zh-cn/guides/client-side-scripts/) 的信息。</ReadMore>

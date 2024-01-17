@@ -3,16 +3,28 @@ title: Componentes de otros frameworks
 description: 'Aprenda a usar React, Svelte, etc.'
 i18nReady: true
 ---
+import IntegrationsNav from '~/components/IntegrationsNav.astro'
+import ReadMore from '~/components/ReadMore.astro'
 
-Crea tu página web en Astro sin sacrificar tus componentes de framework favoritos.
+Crea tu página web en Astro sin sacrificar tus componentes de framework favoritos. Crea [islas](/es/concepts/islands/) con el framework UI de tu elección.
 
-Astro es compatible con una variedad de frameworks populares, incluyendo [React](https://react.dev/), [Preact](https://preactjs.com/), [Svelte](https://svelte.dev/), [Vue](https://vuejs.org/), [SolidJS](https://www.solidjs.com/), [AlpineJS](https://alpinejs.dev/) y [Lit](https://lit.dev/).
+## Integraciones oficiales de frameworks UI
+
+Astro admite una variedad de frameworks populares, incluidos [React](https://react.dev/), [Preact](https://preactjs.com/), [Svelte](https://svelte.dev/), [Vue](https://vuejs.org/), [SolidJS](https://www.solidjs.com/), [AlpineJS](https://alpinejs.dev/) y [Lit](https://lit.dev/) con integraciones oficiales.
+
+Encuentra aún más [integraciones de frameworks mantenidas por la comunidad](https://astro.build/integrations/?search=&categories%5B%5D=frameworks) (por ejemplo, Angular, Qwik, Elm) en nuestro directorio de integraciones.
+
+<IntegrationsNav category="renderer" />
 
 ## Instalando integraciones
 
-Astro incluye [integraciones opcionales](/es/guides/integrations-guide/) de React, Preact, Svelte, Vue, SolidJS, AlpineJS y Lit. Una o varias de estas integraciones de Astro se pueden instalar y configurar en tu proyecto.
+Una o varias de estas integraciones de Astro se pueden instalar y configurar en tu proyecto.
 
-De forma predeterminada, los componentes de framework se renderizarán en el servidor, como HTML estático. Esto es útil para crear maquetados que no son interactivos y evitar enviar código JavaScript innecesario al cliente.
+Consulta la [Guía de integraciones](/es/guides/integrations-guide/) para obtener más detalles sobre la instalación y configuración de las integraciones de Astro.
+
+:::tip
+¿Quieres ver un ejemplo para el framework de tu elección? Visita [astro.new](https://astro.new/latest/frameworks) y selecciona una de las plantillas de framework.
+:::
 
 ## Usando componente de framework
 
@@ -71,7 +83,7 @@ La mayoría de los patrones de accesibilidad específicos de cada framework debe
 
 Hay varias directivas de hidratación disponibles para los componentes de framework: `client:load`, `client:idle`, `client:visible`, `client:media={QUERY}` y `client:only={FRAMEWORK}`.
 
-📚 Consulta nuestra página de [referencia de directivas](/es/reference/directives-reference/#directivas-del-cliente) para obtener una descripción completa de las directivas de hidratación y sus usos.
+<ReadMore>Consulta nuestra página de [referencia de directivas](/es/reference/directives-reference/#directivas-del-cliente) para obtener una descripción completa de las directivas de hidratación y sus usos.</ReadMore>
 
 ## Mezclando frameworks
 
@@ -110,7 +122,7 @@ import Counter from '../components/Counter.svelte';
 </div>
 ```
 
-:::caution[pasando funciones como props]
+:::caution[Pasando funciones como props]
 Puedes pasar una función como prop a un componente de framework, pero este solo funcionará al renderizar el componente en el servidor. Si intentas usar la función en un componente hidratado (por ejemplo, como un evento), se producirá un error.
 
 Esto es porque las funciones no pueden ser _serializadas_ (transferidas desde el servidor al cliente) por Astro.
@@ -224,7 +236,7 @@ Si intentas hidratar un componente Astro con un modificador `client:`, obtendrá
 
 Los [componentes de Astro](/es/core-concepts/astro-components/) son componentes de maquetado únicamente en HTML sin ninguna ejecución del lado del cliente. Pero puedes usar una etiqueta `<script>` en el maquetado del componente de Astro para enviar JavaScript al navegador que se ejecutará en un ámbito global.
 
-📚 Obtenga más información sobre [`<scripts>` del lado del cliente en los componentes de Astro](/es/guides/client-side-scripts/)
+<ReadMore>Obtenga más información sobre [`<scripts>` del lado del cliente en los componentes de Astro](/es/guides/client-side-scripts/)</ReadMore>
 
 [mdn-io]: https://developer.mozilla.org/es/docs/Web/API/Intersection_Observer_API
 [mdn-ric]: https://developer.mozilla.org/es/docs/Web/API/Window/requestIdleCallback

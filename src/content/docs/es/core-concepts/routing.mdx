@@ -6,6 +6,7 @@ i18nReady: true
 import FileTree from '~/components/FileTree.astro'
 import RecipeLinks from "~/components/RecipeLinks.astro"
 import Since from '~/components/Since.astro'
+import ReadMore from '~/components/ReadMore.astro'
 
 Astro utiliza **enrutamiento basado en archivos** para generar las URLs finales según el contenido de la carpeta `src/pages/`. 
 
@@ -83,7 +84,7 @@ Esto generará `/en-v1/info` y `/fr-v2/info`.
 
 Los parámetros pueden incluirse en distintas partes del path. Por ejemplo, el archivo `src/pages/[lang]/[version]/info.astro` con la misma `getStaticPaths()` arriba generará las rutas `/en/v1/info` y `/fr/v2/info`.
 
-📚 Lee más sobre [`getStaticPaths()`](/es/reference/api-reference/#getstaticpaths).
+<ReadMore>Lee más sobre [`getStaticPaths()`](/es/reference/api-reference/#getstaticpaths).</ReadMore>
 
 <RecipeLinks slugs={["es/recipes/i18n"]} />
 
@@ -227,6 +228,8 @@ A veces necesitarás redirigir a tus lectores a una nueva página, ya sea de for
 Puedes definir reglas para [redirigir a los usuarios a páginas movidas permanentemente](#redirecciones-configuradas) en tu configuración de Astro. O puedes redirigir a los [usuarios dinámicamente](#redirecciones-dinámicas) a medida que utilizan tu sitio.
 
 ### Redirecciones configuradas
+
+
 <Since v="2.9.0" />
 
 Puedes especificar un mapeo de redirecciones permanentes en la configuración de Astro con el valor `redirects`. Para la mayoría de las redirecciones, esto es un mapeo de una ruta antigua a la nueva ruta:

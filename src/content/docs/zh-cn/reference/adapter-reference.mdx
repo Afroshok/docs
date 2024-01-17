@@ -43,11 +43,13 @@ export default function createIntegration() {
 
 ```ts
 interface AstroAdapter {
-  name: string;
-  serverEntrypoint?: string;
-  exports?: string[];
-  adapterFeatures: AstroAdapterFeatures;
-  supportedAstroFeatures: AstroFeatureMap;
+	name: string;
+	serverEntrypoint?: string;
+	previewEntrypoint?: string;
+	exports?: string[];
+	args?: any;
+	adapterFeatures?: AstroAdapterFeatures;
+	supportedAstroFeatures?: AstroFeatureMap;
 }
 
 export interface AstroAdapterFeatures {
@@ -171,7 +173,7 @@ export function start(manifest) {
 
 #### `astro/app`
 
-该模块用于渲染已通过 `astro build` 命令预构建的页面。Astro 使用标准的 [Request](https://developer.mozilla.org/zh-CN/docs/Web/API/Request) 和 [Response](https://developer.mozilla.org/zh-CN/docs/Web/API/Response) 对象。如果托管方使用不同格式的请求/响应 API ，需要在适配器中进行转换处理。
+该模块用于渲染已通过 `astro build` 命令预构建的页面。Astro 使用标准的 [Request](https://developer.mozilla.org/zh-CN/docs/Web/API/Request) 和 [Response](https://developer.mozilla.org/zh-CN/docs/Web/API/Response) 对象。如果托管方使用不同格式的请求/响应 API，需要在适配器中进行转换处理。
 
 ```js
 import { App } from 'astro/app';
@@ -190,7 +192,7 @@ export function start(manifest) {
 
 该模块提供以下几个方法：
 
-##### `app.render(request, routeData, locals)`
+##### `app.render(request, { routeData, locals })`
 
 此方法用于匹配符合请求的 Astro 页面，并返回一个 Promise 对象给 [Response](https://developer.mozilla.org/zh-CN/docs/Web/API/Response) 。该方法对于不渲染页面的 API 路由同样适用。
 
@@ -198,11 +200,9 @@ export function start(manifest) {
 const response = await app.render(request);
 ```
 
-方法拥有一个必传参数 `request`，和两个可选参数 [`routeData`](/zh-cn/reference/integrations-reference/#routedata-类型参考) 以及 [`locals`](/zh-cn/guides/middleware/#locals)。
+方法拥有一个必传参数 `request`，和一个传入 [`routeData`](/zh-cn/reference/integrations-reference/#routedata-类型参考) 以及 [`locals`](/zh-cn/reference/api-reference/#astrolocals) 的可选参数。
 
 如果你已经明确需要渲染的路由，可以通过传入 `routeData` 参数，跳过内部调用 [`app.match`](#appmatchrequest) 进行匹配的步骤。
-
-如需使用 `locals` 参数，必须将其作为第三个参数传入。如果不需要指定路由的话，可以将 `routeData` 参数设置为 `undefined`。
 
 下方示例尝试解析 `x-private-header` 请求头，并将其传入 `locals` 中。在此之后，它就可以作为参数被任意[中间件](/zh-cn/guides/middleware/)使用了。
 
@@ -214,7 +214,7 @@ try {
         locals = JSON.parse(privateHeader);
     }
 } finally {
-    const response = await app.render(request, undefined, locals);
+    const response = await app.render(request, { locals });
 }
 ```
 
@@ -247,7 +247,7 @@ if(app.match(request)) {
 
 ## Astro features
 
-<Since v="3.0.0" />
+<p><Since v="3.0.0" /></p>
 
 Astro features 是适配器告诉 Astro 它们是否能够支持某个特性的一种方式，也是适配器支持程度的一种方式。
 
@@ -426,7 +426,7 @@ export default function createIntegration() {
       },
 
       'astro:build:ssr': ({ middlewareEntryPoint }) => {
-          // 请记住检查此属性是否退出,如果适配器未选择加入该功能,则它将是 `undefined`
+          // 请记住检查此属性是否退出，如果适配器未选择加入该功能，则它将是 `undefined`
           if (middlewareEntryPoint) {
              createEdgeMiddleware(middlewareEntryPoint)
           }

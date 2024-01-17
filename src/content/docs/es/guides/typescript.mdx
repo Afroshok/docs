@@ -5,8 +5,7 @@ i18nReady: true
 ---
 import Since from '~/components/Since.astro'
 import PackageManagerTabs from '~/components/tabs/PackageManagerTabs.astro'
-
-
+import ReadMore from '~/components/ReadMore.astro'
 
 Astro tiene compatibilidad integrada con [TypeScript](https://www.typescriptlang.org/). Puedes importar archivos `.ts` y `.tsx` en tu proyecto de Astro, escribir código TypeScript directamente dentro del [componente de Astro](/es/core-concepts/astro-components/#script-de-un-componente), e incluso utilizar un archivo de configuración [`astro.config.ts`](/es/guides/configuring-astro/#archivo-de-configuración-de-astro)  si así lo deseas.
 
@@ -46,7 +45,7 @@ Si no estás utilizando VSCode, puedes instalar el [plugin de Astro TypeScript](
   </Fragment>
   <Fragment slot="pnpm">
   ```shell
-  pnpm install @astrojs/ts-plugin
+  pnpm add @astrojs/ts-plugin
   ```
   </Fragment>
   <Fragment slot="yarn">
@@ -159,7 +158,7 @@ const { greeting = 'Hola', name } = Astro.props;
 
 ## Utilidades de Tipos
 
-<Since v="1.6.0" />
+<p><Since v="1.6.0" /></p>
 
 Astro tiene algunas utilidades de tipos integradas para patrones de tipos de props comunes. Estos están disponibles en la extensión `astro/types`.
 
@@ -195,6 +194,11 @@ declare namespace astroHTML.JSX {
     'data-count'?: number;
     'data-label'?: string;
   }
+
+  // Añade una propiedad personalizada de CSS al objeto de estilo.
+  interface CSSProperties {
+    '--theme-color'?: 'black' | 'white';
+  }
 }
 ```
 
@@ -210,7 +214,7 @@ type MyAttributes = astroHTML.JSX.ImgHTMLAttributes;
 
 ### Tipo polimórfico
 
-<Since v="2.5.0" />
+<p><Since v="2.5.0" /></p>
 
 Astro incluye un helper para facilitar la construcción de componentes que pueden renderizarse como diferentes elementos HTML con total seguridad de tipos. Esto es útil para componentes como `<Link>` que pueden renderizarse como `<a>` o `<button>` dependiendo de las props que se le pasen.
 
@@ -227,7 +231,7 @@ const { as: Tag, ...props } = Astro.props;
 
 ### Inferir los tipos de `getStaticPaths()`
 
-<Since v="2.1.0" />
+<p><Since v="2.1.0" /></p>
 
 Astro incluye ayudantes para trabajar con los tipos devueltos por tu función [`getStaticPaths()`](/es/reference/api-reference/#getstaticpaths) para rutas dinámicas.
 
@@ -272,9 +276,9 @@ Para ver errores de tipos en tu editor, asegúrate de tener instalada la [extens
 `astro check` verifica todos los archivos incluidos en tu proyecto TypeScript. Para chequeo de tipos dentro de archivos de Svelte y Vue, puedes usar los paquetes [`svelte-check`](https://www.npmjs.com/package/svelte-check) y [`vue-tsc`](https://www.npmjs.com/package/vue-tsc) respectivamente.
 :::
 
-📚 Lee más sobre las [importaciones de archivos `.ts`](/es/guides/imports/#typescript) en Astro.
+<ReadMore>Lee más sobre las [importaciones de archivos `.ts`](/es/guides/imports/#typescript) en Astro.</ReadMore>
 
-📚 Lee más sobre la [configuración de TypeScript](https://www.typescriptlang.org/tsconfig/).
+<ReadMore>Lee más sobre la [configuración de TypeScript](https://www.typescriptlang.org/tsconfig/).</ReadMore>
 
 ## Solución de problemas
 

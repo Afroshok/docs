@@ -49,9 +49,8 @@ const name = "Astro";
 HTML 속성은 문자열로 변환되므로 함수나 객체는 HTML 요소로 전달할 수 없습니다.
 예를 들어 이벤트 핸들러는 Astro 컴포넌트의 HTML 요소에 할당할 수 없습니다.
 
-```astro
+```astro title="dont-do-this.astro"
 ---
-// dont-do-this.astro
 function handleClick () {
     console.log("버튼이 클릭되었습니다!");
 }
@@ -62,9 +61,8 @@ function handleClick () {
 
 대신 순수 JavaScript처럼 클라이언트 측 스크립트를 사용하여 이벤트 핸들러를 추가하세요.
 
-```astro
+```astro title="do-this-instead.astro"
 ---
-// do-this-instead.astro
 ---
 <button id="button">클릭하세요</button>
 <script>
@@ -120,7 +118,7 @@ const Component = MyComponent;
 
 - **변수 이름은 대문자로 시작해야 합니다.** 예를 들어 `element` 대신 `Element`를 사용하세요. 그렇지 않으면 Astro는 변수 이름을 리터럴 HTML 태그로 렌더링하는 것을 시도합니다.
 
-- **하이드레이션 지시문은 지원되지 않습니다.** [`client:*` 하이드레이션 지시문](/ko/core-concepts/framework-components/#인터랙티브-컴포넌트-하이드레이션하기)을 사용하면 Astro는 프로덕션을 위해 번들링할 컴포넌트를 알아야 하지만 동적 태그 패턴이 이를 알 수 없게 만듭니다.
+- **수화 지시어는 지원되지 않습니다.** [`client:*` 수화 지시어](/ko/core-concepts/framework-components/#인터랙티브-컴포넌트-하이드레이션하기)를 사용하면 Astro는 프로덕션을 위해 번들링할 컴포넌트를 알아야 하지만 동적 태그 패턴이 이를 알 수 없게 만듭니다.
 
 ### 프래그먼트
 

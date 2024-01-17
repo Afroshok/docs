@@ -5,7 +5,7 @@ export default NavDictionary({
 	'getting-started': 'Introdução',
 	install: 'Instalação',
 	'editor-setup': 'Configuração do Editor',
-	'guides/upgrade-to/v3': 'Atualize para a v3',
+	'guides/upgrade-to/v4': 'Atualize para a v4',
 	coreConcepts: 'Principais Conceitos',
 	'concepts/why-astro': 'Por que Astro?',
 	'concepts/islands': 'Ilhas Astro',
@@ -45,6 +45,7 @@ export default NavDictionary({
 	'guides/middleware': 'Middleware',
 	'guides/testing': 'Testes',
 	'guides/view-transitions': 'Transições de Visualização',
+	'guides/prefetch': 'Pré-carregamento',
 	'guides/troubleshooting': 'Solução de Problemas',
 
 	configuration: 'Configuração',

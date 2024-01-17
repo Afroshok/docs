@@ -4,6 +4,8 @@ description: An intro to layouts, a type of Astro component that is shared betwe
 i18nReady: true
 ---
 
+import ReadMore from '~/components/ReadMore.astro'
+
 **Layouts** are [Astro components](/en/core-concepts/astro-components/) used to provide a reusable UI structure, such as a page template.
 
 We conventionally use the term "layout" for Astro components that provide common UI elements shared across pages such as headers, navigation bars, and footers. A typical Astro layout component provides [Astro, Markdown or MDX pages](/en/core-concepts/astro-pages/) with:
@@ -21,7 +23,7 @@ Layout components are commonly placed in a `src/layouts` directory in your proje
 // src/layouts/MySiteLayout.astro
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
-const { title } = Astro.props
+const { title } = Astro.props;
 ---
 <html lang="en">
   <head>
@@ -54,7 +56,7 @@ import MySiteLayout from '../layouts/MySiteLayout.astro';
 ```
 
 
-📚 Learn more about [slots](/en/core-concepts/astro-components/#slots).
+<ReadMore>Learn more about [slots](/en/core-concepts/astro-components/#slots).</ReadMore>
 
 ## Markdown/MDX Layouts
 
@@ -227,7 +229,7 @@ const { title, fancyJsHelper } = Astro.props;
 <!-- -->
 ```
 
-📚 Learn more about Astro’s Markdown and MDX support in our [Markdown/MDX guide](/en/guides/markdown-content/).
+<ReadMore>Learn more about Astro’s Markdown and MDX support in our [Markdown/MDX guide](/en/guides/markdown-content/).</ReadMore>
 
 ## Using one Layout for `.md`, `.mdx`, and `.astro`
 
@@ -258,8 +260,8 @@ For example, a `BlogPostLayout.astro` layout component could style a post's titl
 ```astro {3} /</?BaseLayout>/ /</?BaseLayout url={frontmatter.url}>/
 ---
 // src/layouts/BlogPostLayout.astro
-import BaseLayout from './BaseLayout.astro'
-const {frontmatter} = Astro.props;
+import BaseLayout from './BaseLayout.astro';
+const { frontmatter } = Astro.props;
 ---
 <BaseLayout url={frontmatter.url}>
   <h1>{frontmatter.title}</h1>

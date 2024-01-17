@@ -45,7 +45,7 @@ VSCode를 사용하지 않는 경우 [Astro TypeScript 플러그인](https://www
   </Fragment>
   <Fragment slot="pnpm">
   ```shell
-  pnpm install @astrojs/ts-plugin
+  pnpm add @astrojs/ts-plugin
   ```
   </Fragment>
   <Fragment slot="yarn">
@@ -163,7 +163,7 @@ const { greeting = '안녕하세요', name } = Astro.props;
 
 ## 타입 유틸리티
 
-<Since v="1.6.0" />
+<p><Since v="1.6.0" /></p>
 
 Astro는 일반적인 props 타입 패턴을 위한 몇 가지 내장 유틸리티 타입을 제공합니다. 이는 `astro/types` 패키지에서 가져와 사용할 수 있습니다.
 
@@ -199,6 +199,11 @@ declare namespace astroHTML.JSX {
     'data-count'?: number;
     'data-label'?: string;
   }
+
+  // 스타일 객체에 CSS 사용자 정의 속성 추가
+  interface CSSProperties {
+    '--theme-color'?: 'black' | 'white';
+  }
 }
 ```
 
@@ -215,7 +220,7 @@ type MyAttributes = astroHTML.JSX.ImgHTMLAttributes;
 
 ### 다형성 타입
 
-<Since v="2.5.0" />
+<p><Since v="2.5.0" /></p>
 
 Astro에는 완전한 타입 안정성을 갖추고 있으며, 다양한 HTML로 렌더링 될 수 있는 컴포넌트를 만들 때 사용할 수 있는 도우미가 포함되어 있습니다. 이는 전달된 props에 따라 `<a>` 또는 `<button>`으로 렌더링될 수 있는 `<Link>`와 같은 컴포넌트에 유용합니다.
 
@@ -235,7 +240,7 @@ const { as: Tag, ...props } = Astro.props;
 
 ### `getStaticPaths()` 타입 추론
 
-<Since v="2.1.0" />
+<p><Since v="2.1.0" /></p>
 
 Astro에는 동적 경로를 생성하기 위해 사용되는 [`getStaticPaths()`](/ko/reference/api-reference/#getstaticpaths) 함수가 존재합니다. Astro에는 이 함수에서 반환된 값의 타입을 추론할 수 있는 도우미가 포함되어 있습니다.
 
@@ -280,9 +285,11 @@ const { title } = Astro.props;
 `astro check` 명령은 TypeScript 프로젝트에 포함된 모든 파일을 확인합니다. Svelte 및 Vue 파일의 타입을 검사하려면 [`svelte-check`](https://www.npmjs.com/package/svelte-check) 및 [`vue-tsc`](https://www.npmjs.com/package/vue-tsc) 패키지를 사용할 수 있습니다.
 :::
 
-📚 자세한 내용은 Astro에서 [`.ts` 파일 가져오기](/ko/guides/imports/#typescript)를 확인하세요.
+import ReadMore from '~/components/ReadMore.astro'
 
-📚 자세한 내용은 [TypeScript 구성](https://www.typescriptlang.org/tsconfig/)을 확인하세요.
+<ReadMore>자세한 내용은 Astro에서 [`.ts` 파일 가져오기](/ko/guides/imports/#typescript)를 확인하세요.</ReadMore>
+
+<ReadMore>자세한 내용은 [TypeScript 구성](https://www.typescriptlang.org/tsconfig/)을 확인하세요.</ReadMore>
 
 ## 문제 해결
 

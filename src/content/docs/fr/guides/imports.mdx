@@ -4,6 +4,7 @@ description: Apprendre comment importer différents types de contenu avec Astro.
 i18nReady: true
 ---
 import RecipeLinks from "~/components/RecipeLinks.astro";
+import ReadMore from '~/components/ReadMore.astro'
 
 Astro supporte la plupart des ressources statiques sans aucune configuration requise. Vous pouvez utiliser la directive `import` n'importe où dans votre projet JavaScript (y compris votre *frontmatter* d'Astro) et Astro inclura une copie construite et optimisée de cette ressource statique dans votre build final. `@import` est également prise en charge dans les balises CSS et `<style>`.
 
@@ -61,7 +62,8 @@ import MyComponent from "./MyComponent"; // MyComponent.tsx
 
 :::
 
-📚 Lire la suite [Prise en charge de TypeScript dans Astro](/fr/guides/typescript/).
+<ReadMore>Lire la suite [Prise en charge de TypeScript dans Astro](/fr/guides/typescript/).</ReadMore>
+
 
 ## JSX / TSX
 
@@ -203,7 +205,7 @@ En outre, les motifs globaux doivent commencer par l'un des éléments suivants 
 
 #### `Astro.glob()` vs `getCollection()`
 
-[Les collections de contenu](/fr/guides/content-collections/) fournissent une [API `getCollection()`](/fr/reference/api-reference/#getcollection) pour charger plusieurs fichiers au lieu de `Astro.glob()`. Si vos fichiers de contenu (par exemple Markdown, MDX, Markdoc) sont situés dans des collections dans le répertoire `src/content/`, utilisez `getCollection()` pour [interroger une collection](/fr/guides/content-collections/#querying-collections) et retourner les entrées de la collection.
+[Les collections de contenu](/fr/guides/content-collections/) fournissent une [API `getCollection()`](/fr/reference/api-reference/#getcollection) pour charger plusieurs fichiers au lieu de `Astro.glob()`. Si vos fichiers de contenu (par exemple Markdown, MDX, Markdoc) sont situés dans des collections dans le répertoire `src/content/`, utilisez `getCollection()` pour [interroger une collection](/fr/guides/content-collections/#interroger-les-collections) et retourner les entrées de la collection.
 
 ## WASM
 

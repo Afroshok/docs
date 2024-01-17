@@ -12,7 +12,7 @@ export default [
 	{ text: 'Bien démarrer', slug: 'getting-started', key: 'getting-started' },
 	{ text: 'Installation', slug: 'install/auto', key: 'install' },
 	{ text: "Configuration de l'éditeur de code", slug: 'editor-setup', key: 'editor-setup' },
-	{ text: 'Mise à jour vers la v3', slug: 'guides/upgrade-to/v3', key: 'guides/upgrade-to/v3' },
+	{ text: 'Mise à jour vers la v4', slug: 'guides/upgrade-to/v4', key: 'guides/upgrade-to/v4' },
 
 	{ text: 'Concepts Fondamentaux', header: true, type: 'learn', key: 'coreConcepts' },
 	{ text: 'Pourquoi Astro ?', slug: 'concepts/why-astro', key: 'concepts/why-astro' },
@@ -147,16 +147,20 @@ export default [
 		slug: 'reference/integrations-reference',
 		key: 'reference/integrations-reference',
 	},
-	{ text: 'Adapteur API', slug: 'reference/adapter-reference', key: 'reference/adapter-reference' },
+	{
+		text: 'Adaptateur API',
+		slug: 'reference/adapter-reference',
+		key: 'reference/adapter-reference',
+	},
 	{
 		text: "API du Service d'Images",
 		slug: 'reference/image-service-reference',
 		key: 'reference/image-service-reference',
 	},
 	{
-		text: 'API du plugin Overlay Dev',
-		slug: 'reference/dev-overlay-plugin-reference',
-		key: 'reference/dev-overlay-plugin-reference',
+		text: "API de la barre d'outils Dev",
+		slug: 'reference/dev-toolbar-app-reference',
+		key: 'reference/dev-toolbar-app-reference',
 	},
 	{
 		text: 'Utilisation des Directives',

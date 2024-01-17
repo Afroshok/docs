@@ -4,11 +4,11 @@ description: Apprenez à partager l'état entre les composants du framework avec
 i18nReady: true
 type: recipe
 ---
-
 import UIFrameworkTabs from '~/components/tabs/UIFrameworkTabs.astro'
 import LoopingVideo from '~/components/LoopingVideo.astro'
 import JavascriptFlavorTabs from '~/components/tabs/JavascriptFlavorTabs.astro'
 import RecipeLinks from "~/components/RecipeLinks.astro"
+
 
 Lors de la construction d'un site web Astro avec l'[architecture isolée / hydratation partielle](/fr/concepts/islands/), vous avez peut-être rencontré ce problème : **Je veux partager l'état entre mes composants.**
 
@@ -49,9 +49,7 @@ Si vous comprenez ces restrictions et que vous trouvez toujours un cas d'utilisa
 
 **Nano Stores et les [Svelte Stores](https://svelte.dev/tutorial/writable-stores) sont très similaires !** En effet, [Nano Stores vous permettent d'utiliser le même raccourci `$`](https://github.com/nanostores/nanostores#svelte) pour les abonnements que vous pourriez utiliser avec Svelte stores.
 
-Si vous voulez éviter les bibliothèques tierces, les [Svelte Stores](https://svelte.dev/tutorial/writable-stores) constituent à eux seuls un excellent outil de communication inter-îles. Néanmoins, vous pouvez préférerer Nano Stores si :
-1. Vous aimez leurs modules complémentaires pour [les objets](https://github.com/nanostores/nanostores#maps) et [l'état asynchrone](https://github.com/nanostores/nanostores#lazy-stores).
-2. Ou si vous souhaitez communiquer entre Svelte et d'autres frameworks d'interface utilisateur comme Preact ou Vue.
+Si vous voulez éviter les bibliothèques tierces, les [Svelte Stores](https://svelte.dev/tutorial/writable-stores) constituent à eux seuls un excellent outil de communication inter-îles. Néanmoins, vous pouvez préférerer Nano Stores si a) vous aimez leurs modules complémentaires pour [les objets](https://github.com/nanostores/nanostores#maps) et [l'état asynchrone](https://github.com/nanostores/nanostores#lazy-stores) ou b) si vous souhaitez communiquer entre Svelte et d'autres frameworks d'interface utilisateur comme Preact ou Vue.
 </details>
 
 <details>
@@ -65,9 +63,7 @@ import { createSignal } from 'solid-js';
 
 export const sharedCount = createSignal(0);
 ```
-...et tous les composants important `sharedCount` partageront le même état. Bien que cela fonctionne bien, vous préférerez peut-être Nano Stores si a) vous aimez leurs modules complémentaires pour
- ["objects"](https://github.com/nanostores/nanostores#maps) et [async state](https://github.com/nanostores/nanostores#lazy-stores), ou b) vous souhaitez communiquer entre Solid et d'autres frameworks d'interface utilisateur comme Preact ou Vue.
-
+...et tous les composants important `sharedCount` partageront le même état. Bien que cela fonctionne bien, vous préférerez peut-être Nano Stores si a) vous aimez leurs modules complémentaires pour ["objects"](https://github.com/nanostores/nanostores#maps) et [async state](https://github.com/nanostores/nanostores#lazy-stores), ou b) vous souhaitez communiquer entre Solid et d'autres frameworks UI comme Preact ou Vue.
 </details>
 :::
 
@@ -97,12 +93,16 @@ Pour commencer, installez Nano Stores avec son package d'assistance pour votre f
   ```
   :::note
   Pas de package d'assistance ici ! Nano Stores peuvent être utilisés comme Svelte stores standard
-
   :::
   </Fragment>
   <Fragment slot="vue">
   ```shell
   npm install nanostores @nanostores/vue
+  ```
+  </Fragment>
+  <Fragment slot="lit">
+  ```shell
+  npm install nanostores @nanostores/lit
   ```
   </Fragment>
 </UIFrameworkTabs>
@@ -118,7 +118,7 @@ Disons que nous construisons une interface de e-commerce simple avec trois élé
 
 <LoopingVideo sources={[{ src: '/videos/stores-example.mp4', type: 'video/mp4' }]} />
 
-_[**Essayez l'exemple complété**](https://github.com/withastro/astro/tree/main/examples/with-nanostores) sur votre machine ou en ligne via Stackblitz._
+_[**Essayez l'exemple complété**](https://github.com/withastro/astro/tree/main/examples/with-nanostores) sur votre machine ou en ligne via StackBlitz._
 
 Votre fichier Astro de base peut ressembler à ceci :
 
@@ -154,8 +154,7 @@ import AddToCartForm from '../components/AddToCartForm';
 
 Commençons par ouvrir notre `CartFlyout` chaque fois que `CartFlyoutToggle` est cliqué. 
 
-Tout d'abord, créez un nouveau fichier JS ou TS pour contenir notre store. Nous utiliserons un
- ["atom"](https://github.com/nanostores/nanostores#atoms) pour cela :
+Tout d'abord, créez un nouveau fichier JS ou TS pour contenir notre store. Nous utiliserons un ["atom"](https://github.com/nanostores/nanostores#atoms) pour cela :
 
 ```js
 // src/cartStore.js
@@ -740,7 +739,7 @@ export default function CartFlyout() {
       </li>
       {/each}
     </aside>
-  {#else}
+  {:else}
     <p>Votre panier est vide !</p>
   {/if}
 {/if}
@@ -818,7 +817,6 @@ customElements.define('cart-flyout', CartFlyoutLit);
 </Fragment>
 </UIFrameworkTabs>
 
-Maintenant, vous devriez avoir un exemple de e-commerce entièrement interactif avec le plus petit bundle de JS de la galaxie
- 🚀
+Maintenant, vous devriez avoir un exemple de e-commerce entièrement interactif avec le plus petit bundle de JS de la galaxie 🚀
 
-[**Essayez l'exemple complété**](https://github.com/withastro/astro/tree/main/examples/with-nanostores) sur votre machine ou en ligne via Stackblitz !
+[**Essayez l'exemple complété**](https://github.com/withastro/astro/tree/main/examples/with-nanostores) sur votre machine ou en ligne via StackBlitz!

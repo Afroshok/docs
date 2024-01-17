@@ -3,7 +3,7 @@ title: Recursos estáticos
 description: Aprende a importar diferentes tipos de contenido con Astro.
 i18nReady: true
 ---
-
+import ReadMore from '~/components/ReadMore.astro'
 import RecipeLinks from "~/components/RecipeLinks.astro";
 
 Astro es compatible con la mayoría de los recursos estáticos sin necesidad de configuración. Puedes usar `import` en cualquier lugar de tu proyecto (incluido el script de frontmatter de Astro) y Astro incluirá una copia optimizada de ese recurso estático en la compilación final. `@import` también es compatible dentro del CSS y `<style>`.
@@ -62,7 +62,7 @@ import MyComponent from "./MyComponent"; // MyComponent.tsx
 
 :::
 
-📚 Lee más sobre la compatibilidad de [TypeScript en Astro.](/es/guides/typescript/)
+<ReadMore>Lee más sobre la compatibilidad de [TypeScript en Astro.](/es/guides/typescript/)</ReadMore>
 
 ## JSX / TSX
 
@@ -242,7 +242,7 @@ const data = JSON.parse(json);
 Con **Vite** y los plugin **Rollup** compatibles, puedes importar tipos de archivo que no son compatibles nativamente con Astro. Aprende dónde encontrar los plugins que necesitas en la sección [Finding Plugins](https://vitejs.dev/guide/using-plugins.html#finding-plugins) de la documentación de Vite.
 
 
-:::note[configuración de plugin]
+:::note[Configuración de plugin]
 Consulta la documentación de tu plugin para las opciones de configuración y cómo instalarlo correctamente.
 :::
 

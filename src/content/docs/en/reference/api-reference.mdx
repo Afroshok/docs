@@ -4,8 +4,7 @@ i18nReady: true
 ---
 import Since from '~/components/Since.astro';
 import PackageManagerTabs from '~/components/tabs/PackageManagerTabs.astro';
-import Badge from '~/components/Badge.astro';
-
+import ReadMore from '~/components/ReadMore.astro';
 
 ## `Astro` global
 
@@ -130,9 +129,9 @@ import Heading from '../components/Heading.astro';
 <Heading title="My First Post" date="09 Aug 2022" />
 ```
 
-📚 Learn more about how [Markdown and MDX Layouts](/en/guides/markdown-content/#frontmatter-layout) handle props.
+<ReadMore>Learn more about how [Markdown and MDX Layouts](/en/guides/markdown-content/#frontmatter-layout) handle props.</ReadMore>
 
-📚 Learn how to add [TypeScript type definitions for your props](/en/guides/typescript/#component-props).
+<ReadMore>Learn how to add [TypeScript type definitions for your props](/en/guides/typescript/#component-props).</ReadMore>
 
 ### `Astro.params`
 
@@ -205,29 +204,169 @@ Astro.response.headers.set('Set-Cookie', 'a=b; Path=/;');
 
 ### `Astro.cookies`
 
-<Since v="1.4.0" />
+<p><Since v="1.4.0" /></p>
 
 `Astro.cookies` contains utilities for reading and manipulating cookies in [server-side rendering](/en/guides/server-side-rendering/) mode.
 
-| Name           | Type                                              | Description                                        |
-| :------------- | :------------------------------------------------ | :------------------------------------------------- |
-| `get`          | `(key: string) => AstroCookie`                       | Gets the cookie as an [`AstroCookie`](#astrocookie) object, which contains the `value` and utility functions for converting the cookie to non-string types.          |
-| `has`          | `(key: string) => boolean`                       | Whether this cookie exists. If the cookie has been set via `Astro.cookies.set()` this will return true, otherwise it will check cookies in the `Astro.request`.          |
-| `set`       | `(key: string, value: string \| number \| boolean \| object, options?: CookieOptions) => void` | Sets the cookie `key` to the given value. This will attempt to convert the cookie value to a string. Options provide ways to set [cookie features](https://www.npmjs.com/package/cookie#options-1), such as the `maxAge` or `httpOnly`.   |
-| `delete`       | `(key: string, options?: CookieDeleteOptions) => void` | Marks the cookie as deleted. Once a cookie is deleted `Astro.cookies.has()` will return `false` and `Astro.cookies.get()` will return an [`AstroCookie`](#astrocookie) with a `value` of `undefined`. Options allow setting the `domain` and `path` of the cookie to delete. |
-| `headers`       | `() => Iterator<string>` | Gets the header values for `Set-Cookie` that will be sent out with the response.   |
+##### `get`
 
+<p>
+**Type:** `(key: string, options?: CookieGetOptions) => AstroCookie`
+</p>
+
+Gets the cookie as an [`AstroCookie`](#astrocookie) object, which contains the `value` and utility functions for converting the cookie to non-string types.
+
+##### `has`
+
+<p>
+**Type:** `(key: string) => boolean`
+</p>
+
+Whether this cookie exists. If the cookie has been set via `Astro.cookies.set()` this will return true, otherwise it will check cookies in the `Astro.request`.
+
+##### `set`
+
+<p>
+**Type:** `(key: string, value: string | number | boolean | object, options?: CookieSetOptions) => void`
+</p>
+
+Sets the cookie `key` to the given value. This will attempt to convert the cookie value to a string. Options provide ways to set [cookie features](https://www.npmjs.com/package/cookie#options-1), such as the `maxAge` or `httpOnly`.
+
+##### `delete`
+
+<p>
+**Type:** `(key: string, options?: CookieDeleteOptions) => void`
+</p>
+
+Marks the cookie as deleted. Once a cookie is deleted `Astro.cookies.has()` will return `false` and `Astro.cookies.get()` will return an [`AstroCookie`](#astrocookie) with a `value` of `undefined`. Options allow setting the `domain` and `path` of the cookie to delete.
+
+##### `headers`
+
+<p>
+**Type:** `() => Iterator<string>`
+</p>
+
+Gets the header values for `Set-Cookie` that will be sent out with the response.
 
 #### `AstroCookie`
 
 Getting a cookie via `Astro.cookies.get()` returns a `AstroCookie` type. It has the following structure.
 
-| Name      | Type                        | Description                                                                                                    |
-| :-------- | :-------------------------- | :------------------------------------------------------------------------------------------------------------- |
-| `value`   | `string \| undefined`       | The raw string value of the cookie.                                                                            |
-| `json`    | `() => Record<string, any>` | Parses the cookie value via `JSON.parse()`, returning an object. Throws if the cookie value is not valid JSON. |
-| `number`  | `() => number`              | Parses the cookie value as a Number. Returns NaN if not a valid number.                                        |
-| `boolean` | `() => boolean`             | Converts the cookie value to a boolean.                                                                        |
+##### `value`
+
+<p>
+**Type:** `string | undefined`
+</p>
+
+The raw string value of the cookie.
+
+##### `json`
+
+<p>
+**Type:** `() => Record<string, any>`
+</p>
+
+Parses the cookie value via `JSON.parse()`, returning an object. Throws if the cookie value is not valid JSON.
+
+##### `number`
+
+<p>
+**Type:** `() => number`
+</p>
+
+Parses the cookie value as a Number. Returns NaN if not a valid number.
+
+##### `boolean`
+
+<p>
+**Type:** `() => boolean`
+</p>
+
+Converts the cookie value to a boolean.
+
+#### `CookieGetOptions`
+
+<p><Since v="4.1.0"/></p>
+
+Getting a cookie also allows specifying options via the `CookieGetOptions` interface:
+
+##### `decode`
+
+<p>
+**Type:** `(value: string) => string`
+</p>
+
+Allows customization of how a cookie is deserialized into a value.
+
+#### `CookieSetOptions`
+
+<p><Since v="4.1.0"/></p>
+
+Setting a cookie via `Astro.cookies.set()` allows passing in a `CookieSetOptions` to customize how the cookie is serialized.
+
+##### `domain`
+
+<p>
+**Type:** `string`
+</p>
+
+ Specifies the domain. If no domain is set, most clients will interpret to apply to the current domain.
+
+ ##### `expires`
+
+ <p>
+ **Type:** `Date`
+ </p>
+
+Species the date on which the cookie will expire.
+
+##### `httpOnly`
+
+<p>
+**Type:** `boolean`
+</p>
+
+If true, the cookie will not be accessible client-side.
+
+##### `maxAge`
+
+<p>
+**Type:** `number`
+</p>
+
+Specifies a number, in seconds, for which the cookie is valid.
+
+##### `path`
+
+<p>
+**Type:** `string`
+</p>
+
+Specifies a subpath of the domain in which the cookie is applied.
+
+##### `sameSite`
+
+<p>
+**Type:** `boolean | 'lax' | 'none' | 'strict'`
+</p>
+
+Specifies the value of the [SameSite](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-rfc6265bis-09#section-5.4.7) cookie header.
+
+##### `secure`
+
+<p>
+**Type:** `boolean`
+</p>
+
+If true, the cookie is only set on https sites.
+
+##### `encode`
+
+<p>
+**Type:** `(value: string) => string`
+</p>
+
+Allows customizing how the cookie is serialized.
 
 ### `Astro.redirect()`
 `Astro.redirect()` allows you to redirect to another page. 
@@ -256,7 +395,7 @@ The [canonical URL][canonical] of the current page.
 
 ### `Astro.url`
 
-<Since v="1.0.0-rc" />
+<p><Since v="1.0.0-rc" /></p>
 
 A [URL](https://developer.mozilla.org/en-US/docs/Web/API/URL) object constructed from the current `Astro.request.url` URL string value. Useful for interacting with individual properties of the request URL, like pathname and origin. 
 
@@ -283,7 +422,7 @@ const socialImageURL = new URL('/images/preview.png', Astro.url);
 
 ### `Astro.clientAddress`
 
-<Since v="1.0.0-rc" />
+<p><Since v="1.0.0-rc" /></p>
 
 Specifies the [IP address](https://en.wikipedia.org/wiki/IP_address) of the request. This property is only available when building for SSR (server-side rendering) and should not be used for static sites.
 
@@ -301,7 +440,7 @@ const ip = Astro.clientAddress;
 
 ### `Astro.generator`
 
-<Since v="1.0.0" />
+<p><Since v="1.0.0" /></p>
 
 `Astro.generator` is a convenient way to add a [`<meta name="generator">`](https://html.spec.whatwg.org/multipage/semantics.html#meta-generator) tag with your current version of Astro. It follows the format `"Astro v1.x.x"`.
 
@@ -452,6 +591,28 @@ const orders = Array.from(Astro.locals.orders.entries());
 </ul>
 ```
 
+### `Astro.preferredLocale`
+
+`Astro.preferredLocale` is a computed value that represents the preferred locale of the user. 
+
+It is computed by checking the configured locales in your `i18n.locales` array and locales supported by the users's browser via the header `Accept-Language`. This value is `undefined` if no such match exists.
+
+This property is only available when building for SSR (server-side rendering) and should not be used for static sites.
+
+### `Astro.preferredLocaleList`
+
+`Astro.preferredLocaleList` represents the array of all locales that are both requested by the browser and supported by your website. This produces a list of all compatible languages between your site and your visitor. 
+
+If none of the browser's requested languages are found in your locales array, then the value is `[]`: you do not support any of your visitor's preferred locales.
+
+If the browser does not specify any preferred languages, then this value will be [`i18n.locales`](/en/reference/configuration-reference/#i18nlocales): all of your supported locales will be considered equally preferred by a visitor with no preferences. 
+
+This property is only available when building for SSR (server-side rendering) and should not be used for static sites.
+
+### `Astro.currentLocale`
+
+The locale computed from the current URL, using the syntax specified in your `locales` configuration. If the URL does not contain a `/[locale]/` prefix, then the value will default to `i18n.defaultLocale`.
+
 ## Endpoint Context
 
 [Endpoint functions](/en/core-concepts/endpoints/) receive a context object as the first parameter. It mirrors many of the `Astro` global properties.
@@ -484,9 +645,9 @@ export function getStaticPaths() {
 }
 
 export function GET({ params }: APIContext) {
-	return {
-		body: JSON.stringify({ id: params.id })
-	};
+	return new Response(
+    JSON.stringify({ id: params.id }),
+  );
 }
 ```
 
@@ -508,9 +669,9 @@ export function getStaticPaths() {
 }
 
 export function GET({ props }: APIContext) {
-	return {
-		body: JSON.stringify({ author: props.author }),
-	};
+	return new Response(
+    JSON.stringify({ author: props.author }),
+  );
 }
 ```
 
@@ -524,9 +685,7 @@ A standard [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) o
 import type { APIContext } from 'astro';
 
 export function GET({ request }: APIContext) {
-  return {
-    body: `Hello ${request.url}`
-  }
+  return new Response(`Hello ${request.url}`);
 }
 ```
 
@@ -552,9 +711,7 @@ Specifies the [IP address](https://en.wikipedia.org/wiki/IP_address) of the requ
 import type { APIContext } from 'astro';
 
 export function GET({ clientAddress }: APIContext) {
-  return {
-    body: `Your IP address is: ${clientAddress}`
-  }
+  return new Response(`Your IP address is: ${clientAddress}`);
 }
 ```
 
@@ -603,9 +760,9 @@ See also: [`Astro.redirect()`](#astroredirect)
 Middleware functions can read and write the values of `context.locals`:
 
 ```ts title="src/middleware.ts"
-import type { MiddlewareResponseHandler } from 'astro';
+import type { MiddlewareHandler } from 'astro';
 
-export const onRequest: MiddlewareResponseHandler = ({ locals }, next) => {
+export const onRequest: MiddlewareHandler = ({ locals }, next) => {
   if (!locals.title) {
     locals.title = "Default Title";
   }
@@ -619,9 +776,7 @@ API endpoints can only read information from `context.locals`:
 import type { APIContext } from 'astro';
 
 export function GET({ locals }: APIContext) {
-  return {
-    body: locals.title // "Default Title"
-  }
+  return new Response(locals.title); // "Default Title"
 }
 ```
 
@@ -766,18 +921,85 @@ const { page } = Astro.props;
 
 Pagination will pass a `page` prop to every rendered page that represents a single page of data in the paginated collection. This includes the data that you've paginated (`page.data`) as well as metadata for the page (`page.url`, `page.start`, `page.end`, `page.total`, etc). This metadata is useful for things like a "Next Page" button or a "Showing 1-10 of 100" message.
 
-| Name               |         Type          | Description                                                                                                                       |
-| :----------------- | :-------------------: | :-------------------------------------------------------------------------------------------------------------------------------- |
-| `page.data`        |        `Array`        | Array of data returned from `data()` for the current page.                                                                        |
-| `page.start`       |       `number`        | Index of first item on current page, starting at `0` (e.g. if `pageSize: 25`, this would be `0` on page 1, `25` on page 2, etc.). |
-| `page.end`         |       `number`        | Index of last item on current page.                                                                                               |
-| `page.size`        |       `number`        | How many items per-page.                                                                                                          |
-| `page.total`       |       `number`        | The total number of items across all pages.                                                                                       |
-| `page.currentPage` |       `number`        | The current page number, starting with `1`.                                                                                       |
-| `page.lastPage`    |       `number`        | The total number of pages.                                                                                                        |
-| `page.url.current` |       `string`        | Get the URL of the current page (useful for canonical URLs)                                                                       |
-| `page.url.prev`    | `string \| undefined` | Get the URL of the previous page (will be `undefined` if on page 1).                                                              |
-| `page.url.next`    | `string \| undefined` | Get the URL of the next page (will be `undefined` if no more pages).                                                              |
+##### `page.data`
+
+<p>
+**Type:** `Array`
+</p>
+
+Array of data returned from `data()` for the current page.
+
+##### `page.start`
+
+<p>
+**Type:** `number`
+</p>
+
+Index of first item on current page, starting at `0`. (e.g. if `pageSize: 25`, this would be `0` on page 1, `25` on page 2, etc.)
+
+##### `page.end`
+
+<p>
+**Type:** `number`
+</p>
+
+Index of last item on current page.
+
+##### `page.size`
+
+<p>
+**Type:** `number`
+</p>
+
+How many items per-page.
+
+##### `page.total`
+
+<p>
+**Type:** `number`
+</p>
+
+The total number of items across all pages.
+
+##### `page.currentPage`
+
+<p>
+**Type:** `number`
+</p>
+
+The current page number, starting with `1`.
+
+##### `page.lastPage`
+
+<p>
+**Type:** `number`
+</p>
+
+The total number of pages.
+
+##### `page.url.current`
+
+<p>
+**Type:** `string`
+</p>
+
+Get the URL of the current page (useful for canonical URLs).
+
+##### `page.url.prev`
+
+<p>
+**Type:** `string | undefined`
+</p>
+
+Get the URL of the previous page (will be `undefined` if on page 1).
+
+##### `page.url.next`
+
+<p>
+**Type:** `string | undefined`
+</p>
+
+Get the URL of the next page (will be `undefined` if no more pages).
 
 ## `import.meta`
 
@@ -826,9 +1048,7 @@ It returns an object with the following properties:
 
 ## Content Collections (`astro:content`)
 
-<p>
-  <Since v="2.0.0" />
-</p>
+<p><Since v="2.0.0" /></p>
 
 Content collections offer APIs to configure and query your Markdown or MDX documents in `src/content/`. For features and usage examples, [see our content collections guide](/en/guides/content-collections/).
 
@@ -856,7 +1076,7 @@ This function accepts the following properties:
 
 #### `type`
 
-<Since v="2.5" />
+<p><Since v="2.5.0" /></p>
 
 **Type:** `'content' | 'data'`  
 **Default:** `'content'`
@@ -935,9 +1155,7 @@ const draftBlogPosts = await getCollection('blog', ({ data }) => {
 
 ### `getEntry()`
 
-<p>
-  <Since v="2.5.0" />
-</p>
+<p><Since v="2.5.0" /></p>
 
 **Types:**
 
@@ -966,9 +1184,7 @@ See the `Content Collections` guide for examples of [querying collection entries
 
 ### `getEntries()`
 
-<p>
-  <Since v="2.5" />
-</p>
+<p><Since v="2.5.0" /></p>
 
 **Types:**
 
@@ -1131,9 +1347,7 @@ const blog = defineCollection({
 
 ## Middleware (`astro:middleware`)
 
-<p>
-  <Since v="2.6.0" />
-</p>
+<p><Since v="2.6.0" /></p>
 
 Middleware allows you to intercept requests and responses and inject behaviors dynamically every time a page or endpoint is about to be rendered. For features and usage examples, [see our middleware guide](/en/guides/middleware/).
 
@@ -1294,7 +1508,7 @@ See more in the [Images Guide](/en/guides/images/#image--astroassets).
 
 ### `<Picture />`
 
-<Since v="3.3.0" />
+<p><Since v="3.3.0" /></p>
 
 Use the built-in `<Picture />` Astro component to display a responsive image with multiple formats and/or sizes.
 
