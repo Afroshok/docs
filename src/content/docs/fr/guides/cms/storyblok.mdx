@@ -268,7 +268,7 @@ Pour connecter vos Bloks nouvellement créés aux composants Astro, créez un no
 ```astro title="src/storyblok/Page.astro"
 ---
 import { storyblokEditable } from '@storyblok/astro'
-import StoryblokComponent from '@storyblok/astro/components/StoryblokComponent.astro';
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 const { blok } = Astro.props
 ---
 
@@ -396,7 +396,7 @@ Pour générer des pages pour tous les articles de votre blog, créez une page `
 
 #### Génération de sites statiques
 
-Si vous utilisez la génération de site statique par défaut d'Astro, vous utiliserez les [routes dynamiques](/fr/core-concepts/routing/#routes-dynamiques) et la fonction `getStaticPaths` pour générer les pages de votre projet.
+Si vous utilisez la génération de site statique par défaut d'Astro, vous utiliserez les [routes dynamiques](/fr/guides/routing/#routes-dynamiques) et la fonction `getStaticPaths` pour générer les pages de votre projet.
 
 Créez un nouveau répertoire `src/pages/blog/` et ajoutez un nouveau fichier appelé `[...slug].astro` avec le code suivant :
 

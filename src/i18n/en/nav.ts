@@ -6,6 +6,13 @@
  * - All entries MUST include `text` and `key`
  * - Heading entries MUST include `header: true` and `type`
  * - Link entries MUST include `slug` (which excludes the language code)
+ *
+ * For translators:
+ *
+ * Copy the English `key` value unchanged and translate only the `text` into your language:
+ *
+ * `src/i18n/en/nav.ts`: `{ text: 'Getting Started', slug: 'getting-started', key: 'getting-started' },`
+ * `src/i18n/ja/nav.ts`: `'getting-started': 'はじめに',`
  */
 export default [
 	{ text: 'Start Here', header: true, type: 'learn', key: 'startHere' },
@@ -36,25 +43,25 @@ export default [
 
 	{
 		text: 'Project Structure',
-		slug: 'core-concepts/project-structure',
-		key: 'core-concepts/project-structure',
+		slug: 'basics/project-structure',
+		key: 'basics/project-structure',
 	},
 	{
 		text: 'Components',
-		slug: 'core-concepts/astro-components',
-		key: 'core-concepts/astro-components',
+		slug: 'basics/astro-components',
+		key: 'basics/astro-components',
 	},
-	{ text: 'Pages', slug: 'core-concepts/astro-pages', key: 'core-concepts/astro-pages' },
-	{ text: 'Layouts', slug: 'core-concepts/layouts', key: 'core-concepts/layouts' },
+	{ text: 'Pages', slug: 'basics/astro-pages', key: 'basics/astro-pages' },
+	{ text: 'Layouts', slug: 'basics/layouts', key: 'basics/layouts' },
 	{
 		text: 'Astro Template Syntax',
-		slug: 'core-concepts/astro-syntax',
-		key: 'core-concepts/astro-syntax',
+		slug: 'basics/astro-syntax',
+		key: 'basics/astro-syntax',
 	},
 	{
 		text: 'Rendering Modes',
-		slug: 'core-concepts/rendering-modes',
-		key: 'core-concepts/rendering-modes',
+		slug: 'basics/rendering-modes',
+		key: 'basics/rendering-modes',
 	},
 
 	{ text: 'Built-ins', header: true, type: 'learn', key: 'builtins' },
@@ -78,8 +85,8 @@ export default [
 	{ text: 'Add integrations', slug: 'guides/integrations-guide', key: 'guides/integrations-guide' },
 	{
 		text: 'UI Frameworks',
-		slug: 'core-concepts/framework-components',
-		key: 'core-concepts/framework-components',
+		slug: 'guides/framework-components',
+		key: 'guides/framework-components',
 	},
 	{
 		text: 'SSR Adapters',
@@ -95,7 +102,7 @@ export default [
 	{ text: 'More recipes', slug: 'recipes', key: 'guides/recipes' },
 
 	{ text: 'Guides', header: true, type: 'learn', key: 'features' },
-	{ text: 'Routing', slug: 'core-concepts/routing', key: 'core-concepts/routing' },
+	{ text: 'Routing', slug: 'guides/routing', key: 'guides/routing' },
 	{ text: 'Markdown', slug: 'guides/markdown-content', key: 'guides/markdown-content' },
 	{
 		text: 'Scripts & Event Handling',
@@ -106,7 +113,7 @@ export default [
 	{ text: 'Images', slug: 'guides/images', key: 'guides/images' },
 	{ text: 'Fonts', slug: 'guides/fonts', key: 'guides/fonts' },
 	{ text: 'Imports', slug: 'guides/imports', key: 'guides/imports' },
-	{ text: 'Endpoints', slug: 'core-concepts/endpoints', key: 'core-concepts/endpoints' },
+	{ text: 'Endpoints', slug: 'guides/endpoints', key: 'guides/endpoints' },
 	{ text: 'Data Fetching', slug: 'guides/data-fetching', key: 'guides/data-fetching' },
 	{
 		text: 'Internationalization',
@@ -114,7 +121,9 @@ export default [
 		key: 'guides/internationalization',
 	},
 	{ text: 'Middleware', slug: 'guides/middleware', key: 'guides/middleware' },
+	{ text: 'E-commerce', slug: 'guides/ecommerce', key: 'guides/ecommerce' },
 	{ text: 'Testing', slug: 'guides/testing', key: 'guides/testing' },
+	{ text: 'Authentication', slug: 'guides/authentication', key: 'guides/authentication' },
 	{ text: 'Troubleshooting', slug: 'guides/troubleshooting', key: 'guides/troubleshooting' },
 
 	{ text: 'Configuration', header: true, type: 'learn', key: 'configuration' },
@@ -166,4 +175,16 @@ export default [
 		key: 'reference/error-reference',
 	},
 	{ text: 'NPM Package Format', slug: 'reference/publish-to-npm', key: 'guides/publish-to-npm' },
+
+	{ text: 'Community Resources', header: true, type: 'learn', key: 'communityResources' },
+	{
+		text: 'Courses, Guides, and Recipes',
+		slug: 'community-resources/content',
+		key: 'community-resources/content',
+	},
+	{
+		text: 'Talks, Interviews, and Streams',
+		slug: 'community-resources/talks',
+		key: 'community-resources/talks',
+	},
 ] as const;

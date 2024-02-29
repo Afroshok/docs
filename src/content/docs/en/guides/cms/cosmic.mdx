@@ -16,7 +16,7 @@ import Card from '~/components/ShowcaseCard.astro'
 
 1. **An Astro project**- If you’d like to start with a fresh Astro project, read the [installation guide](/en/install/auto/). This guide follows a simplified version of the [Astro Headless CMS Theme](https://astro.build/themes/details/cosmic-cms-blog/) with [Tailwind CSS](https://tailwindcss.com/) for styling.
 2. **A Cosmic account and Bucket** - [Create a free Cosmic account](https://app.cosmicjs.com/signup) if you don’t have one. After creating your account, you'll be prompted to create a new empty project. There's also a [Simple Astro Blog template](https://www.cosmicjs.com/marketplace/templates/simple-astro-blog) available (this is the same template as the Astro Headless CMS Theme) to automatically import all of the content used in this guide.
-3. **Your Cosmic API keys**  - From your Cosmic dasboard, you will need to locate both the **Bucket slug** and **Bucket read key** in order to connect to Cosmic.
+3. **Your Cosmic API keys**  - From your Cosmic dashboard, you will need to locate both the **Bucket slug** and **Bucket read key** in order to connect to Cosmic.
 
 ## Integrating Cosmic with Astro
 
@@ -160,7 +160,7 @@ const data = await getAllPosts()
 
 ### Generating Individual Blog Posts with Astro
 
-To generate an individual page with full content for each blog post, create a [dynamic routing page](/en/core-concepts/routing/#dynamic-routes) at `src/pages/blog/[slug].astro`.
+To generate an individual page with full content for each blog post, create a [dynamic routing page](/en/guides/routing/#dynamic-routes) at `src/pages/blog/[slug].astro`.
 
 This page will export a `getStaticPaths()` function to generate a page route at the `slug` returned from each `post` object. This function is called at build time and generates and renders all of your blog posts at once.
 

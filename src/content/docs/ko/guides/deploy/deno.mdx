@@ -17,7 +17,9 @@ import ReadMore from '~/components/ReadMore.astro'
 
 ## 프로젝트 구성
 
-Astro 프로젝트는 서버 측 렌더링 사이트 (SSR)로 [Deno Deploy](https://deno.com/deploy)에 배포될 수 있습니다. Deno Deploy는 정적 사이트를 지원하지 않습니다.
+이 페이지에서는 Astro 프로젝트를 서버 측 렌더링 사이트 (SSR)로 [Deno Deploy](https://deno.com/deploy)에 배포하기 위한 지침을 제공합니다.
+
+정적 사이트를 배포하려면 [Deno 정적 사이트 배포 튜토리얼](https://docs.deno.com/deploy/tutorials/static-site)을 참조하세요.
 
 ### SSR용 어댑터
 
@@ -72,7 +74,7 @@ npx astro add deno
     npm run preview
     ```
 
-## 배포 방법
+## SSR Astro 사이트를 배포하는 방법
 
 GitHub Actions 또는 Deno Deploy의 CLI (명령줄 인터페이스)를 사용하여 Deno Deploy에 배포할 수 있습니다.
 
@@ -85,7 +87,7 @@ GitHub Actions 또는 Deno Deploy의 CLI (명령줄 인터페이스)를 사용�
 1. GitHub 계정으로 [Deno Deploy](https://dash.deno.com/)에 로그인한 후 [New Project](https://dash.deno.com)를 클릭합니다.
 
 1. 저장소와 배포할 브랜치를 선택하고 **GitHub Action** 모드를 선택합니다. (Astro 사이트에는 빌드 단계가 필요하며 자동 모드를 사용할 수 없습니다.)
-   
+
 1. Astro 프로젝트에서 `.github/workflows/deploy.yml`에 새 파일을 생성하고 아래 YAML에 붙여넣습니다. 이는 Astro 사이트에 필요한 추가 단계가 포함된 Deno Deploy에서 제공하는 YAML과 유사합니다.
 
     ```yaml
@@ -102,7 +104,7 @@ GitHub Actions 또는 Deno Deploy의 CLI (명령줄 인터페이스)를 사용�
 
         steps:
           - name: Clone repository
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
 
           # npm을 사용하지 않나요? `npm ci`를 `yarn install` 또는 `pnpm i`로 변경하세요.
           - name: Install dependencies
@@ -122,7 +124,7 @@ GitHub Actions 또는 Deno Deploy의 CLI (명령줄 인터페이스)를 사용�
 
 1. 이 YAML 파일을 커밋하고 구성된 배포 브랜치에서 GitHub로 푸시하면 배포가 자동으로 시작됩니다!
 
-   GitHub 저장소 페이지 또는 [Deno Deploy](https://dash.deno.com)의 "Actions" 탭을 사용하여 진행 상황을 추적할 수 있습니다.
+  GitHub 저장소 페이지 또는 [Deno Deploy](https://dash.deno.com)의 "Actions" 탭을 사용하여 진행 상황을 추적할 수 있습니다.
 
 ### CLI 배포
 
@@ -140,7 +142,7 @@ GitHub Actions 또는 Deno Deploy의 CLI (명령줄 인터페이스)를 사용�
 
 1. 배포하려면 `deployctl`을 실행합니다!
 
-   아래 명령에서 `<ACCESS-TOKEN>`을 [Personal Access Token](https://dash.deno.com/account#access-tokens)으로 바꾸고 `<MY-DENO-PROJECT>`를 Deno Deploy 프로젝트 이름으로 바꿉니다.
+  아래 명령에서 `<ACCESS-TOKEN>`을 [Personal Access Token](https://dash.deno.com/account#access-tokens)으로 바꾸고 `<MY-DENO-PROJECT>`를 Deno Deploy 프로젝트 이름으로 바꿉니다.
 
     ```bash
     DENO_DEPLOY_TOKEN=<ACCESS-TOKEN> deployctl deploy --project=<MY-DENO-PROJECT> --no-static --include=./dist ./dist/server/entry.mjs

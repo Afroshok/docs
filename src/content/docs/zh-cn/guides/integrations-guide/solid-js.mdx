@@ -48,7 +48,7 @@ Astro 包含了一个 `astro add` 命令，用于自动设置官方集成。如�
   </Fragment>
   <Fragment slot="pnpm">
   ```sh
-  pnpm install @astrojs/solid-js
+  pnpm add @astrojs/solid-js
   ```
   </Fragment>
   <Fragment slot="yarn">
@@ -58,7 +58,7 @@ Astro 包含了一个 `astro add` 命令，用于自动设置官方集成。如�
   </Fragment>
 </PackageManagerTabs>
 
-大多数包管理器也会安装相关的对等依赖项。如果在启动 Astro 时看到 "Cannot find package 'solid-js'" (或类似的)警告，则需要安装 SolidJS：
+大多数包管理器也会安装相关的对等依赖项。如果在启动 Astro 时看到 `Cannot find package 'solid-js'` (或类似的)警告，则需要安装 SolidJS：
 
 <PackageManagerTabs>
   <Fragment slot="npm">
@@ -68,7 +68,7 @@ Astro 包含了一个 `astro add` 命令，用于自动设置官方集成。如�
   </Fragment>
   <Fragment slot="pnpm">
   ```sh
-  pnpm install solid-js
+  pnpm add solid-js
   ```
   </Fragment>
   <Fragment slot="yarn">
@@ -126,14 +126,14 @@ export default defineConfig({
       include: ['**/react/*'],
     }),
     solid({
-      include: ['**/solid/*', '**/node_modules/@suid/material/**],
+      include: ['**/solid/*', '**/node_modules/@suid/material/**'],
     }),
   ],
 });
 ```
 
 ## 使用
-像使用任何 [UI 框架组件](/zh-cn/core-concepts/framework-components/) 一样使用 SolidJS 组件。
+像使用任何 [UI 框架组件](/zh-cn/guides/framework-components/) 一样使用 SolidJS 组件。
 ### Suspense 边界
 为了支持 Solid 资源和懒加载组件而无需过多配置，服务器端和水合组件会自动包装在顶级 Suspense 边界内，并使用 [`renderToStringAsync`][solid-render-to-string-async] 函数在服务器上渲染。因此，你不需要在异步组件周围添加顶级 Suspense 边界。
 例如，你可以使用 Solid 的 [`createResource`][solid-create-resource] 在服务器上获取异步远程数据。远程数据将包含在 Astro 的初始服务器渲染的 HTML 中：
@@ -162,7 +162,7 @@ function CharacterName() {
 
 [astro-integration]: /zh-cn/guides/integrations-guide/
 
-[astro-ui-frameworks]: /zh-cn/core-concepts/framework-components/#使用框架组件
+[astro-ui-frameworks]: /zh-cn/guides/framework-components/#使用框架组件
 
 [astro-client-only]: /zh-cn/reference/directives-reference/#clientonly
 

@@ -8,9 +8,9 @@ i18nReady: true
 ---
 import PackageManagerTabs from '~/components/tabs/PackageManagerTabs.astro'
 
-Este adaptador permite a Astro desplegar tu [sitio renderizado de manera `hybrid` o `server`](/es/core-concepts/rendering-modes/#renderizado-bajo-demanda) en [Cloudflare](https://www.cloudflare.com/).
+Este adaptador permite a Astro desplegar tu [sitio renderizado de manera `hybrid` o `server`](/es/basics/rendering-modes/#renderizado-bajo-demanda) en [Cloudflare](https://www.cloudflare.com/).
 
-Si estás utilizando Astro como un [constructor de sitios estáticos](/es/core-concepts/rendering-modes/#pre-renderizado), no necesitas un adaptador.
+Si estás utilizando Astro como un [constructor de sitios estáticos](/es/basics/rendering-modes/#pre-renderizado), no necesitas un adaptador.
 
 Aprende como desplegar tu sitio en nuestra [guía de despliegue en Cloudflare Pages](/es/guides/deploy/cloudflare/).
 
@@ -64,7 +64,7 @@ Primero, añade el adaptador `@astrojs/cloudflare` a las dependencias de tu proy
   </Fragment>
 </PackageManagerTabs>
 
-Luego, añade el adaptador y el [modo de renderizado](/es/core-concepts/rendering-modes/#renderizado-bajo-demanda) deseado a tu archivo `astro.config.mjs`:
+Luego, añade el adaptador y el [modo de renderizado](/es/basics/rendering-modes/#renderizado-bajo-demanda) deseado a tu archivo `astro.config.mjs`:
 
 ```js title="astro.config.mjs" ins={2,5-6}
 import { defineConfig } from 'astro/config';
@@ -468,9 +468,15 @@ declare namespace App {
 ```
 
 ## Plataforma
+
 ### Cabeceras
 
 Puedes adjuntar [cabeceras personalizadas](https://developers.cloudflare.com/pages/platform/headers/) a tus respuestas añadiendo un archivo `_headers` en la carpeta `public/` de tu proyecto de Astro. Este archivo se copiará al directorio de salida de tu compilación.
+
+
+### Assets
+
+Los assets creados por Astro se nombran con un hash y, por lo tanto, se les pueden asignar encabezados de caché largos. Por defecto, Astro en Cloudflare agregará dicho encabezado para estos archivos.
 
 ### Redirecciones
 

@@ -15,10 +15,10 @@ export default NavDictionary({
 
 	basics: 'Fundamentos',
 
-	'core-concepts/project-structure': 'Estrutura de Projetos',
-	'core-concepts/astro-components': 'Componentes',
-	'core-concepts/astro-pages': 'Páginas',
-	'core-concepts/layouts': 'Layouts',
+	'basics/project-structure': 'Estrutura de Projetos',
+	'basics/astro-components': 'Componentes',
+	'basics/astro-pages': 'Páginas',
+	'basics/layouts': 'Layouts',
 
 	examples: 'Receitas',
 	'guides/migrate-to-astro': 'Migre para o Astro',
@@ -29,9 +29,9 @@ export default NavDictionary({
 	'guides/recipes': 'Mais Receitas',
 
 	features: 'Guias',
-	'core-concepts/astro-syntax': 'Sintaxe do Astro',
-	'core-concepts/framework-components': 'Frameworks de UI',
-	'core-concepts/routing': 'Roteamento',
+	'basics/astro-syntax': 'Sintaxe do Astro',
+	'guides/framework-components': 'Frameworks de UI',
+	'guides/routing': 'Roteamento',
 	'guides/markdown-content': 'Markdown e MDX',
 	'guides/content-collections': 'Coleções de Conteúdo',
 	'guides/client-side-scripts': 'Scripts & Manipulação de Eventos',
@@ -40,13 +40,14 @@ export default NavDictionary({
 	'guides/fonts': 'Fontes',
 	'guides/imports': 'Importações',
 	'guides/server-side-rendering': 'Renderização no lado do Servidor (SSR)',
-	'core-concepts/endpoints': 'Endpoints',
+	'guides/endpoints': 'Endpoints',
 	'guides/data-fetching': 'Busca de Dados',
 	'guides/middleware': 'Middleware',
 	'guides/testing': 'Testes',
 	'guides/view-transitions': 'Transições de Visualização',
 	'guides/prefetch': 'Pré-carregamento',
 	'guides/troubleshooting': 'Solução de Problemas',
+	'guides/authentication': 'Autenticação',
 
 	configuration: 'Configuração',
 	'guides/configuring-astro': 'O Arquivo de Configuração Astro',
@@ -64,4 +65,8 @@ export default NavDictionary({
 	'reference/cli-reference': 'A CLI do Astro',
 	'reference/error-reference': 'Referência de Erros',
 	'guides/publish-to-npm': 'Publique no NPM',
+
+	communityResources: 'Conteúdos da Comunidade',
+	'community-resources/content': 'Cursos, Guias, e Receitas',
+	'community-resources/talks': 'Palestras, Entrevistas, e Transmissões',
 });
